@@ -1,5 +1,6 @@
-export interface Users {
-    id: string,
+export interface UserData {
+    createdAt: string,
     name: string,
-    email: string
+    avatar: string,
+    id: number
 }
