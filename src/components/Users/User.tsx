@@ -25,7 +25,7 @@ export const User: React.FC<Props> = ({ singleUser,deleteUserData }) => {
                 <img className='cursor-pointer ' src={singleUser.avatar} alt="" onClick={() => navigate(`/users/user/${singleUser.id}`)} />
                 <div className='user-content'>
                     <span className='delete'>
-                        <DeleteOutlined onClick={() => deleteUserData(`/users/${singleUser.id}`)} />
+                        <DeleteOutlined onClick={() => deleteUserData(singleUser.id)} />
                     </span>
                     <div>{singleUser.name}</div>
                     <div>{singleUser.createdAt}</div>

@@ -8,7 +8,7 @@ export const UsersContainer: React.FC = () => {
     const [usersData, setUsersData] = useState<UserData[]>();
 
     let { data, isLoading } = useUsersQuery();
-    const [deleteUserData] = useDeleteUserMutation();
+    const [deleteUserData, deleteResponsive] = useDeleteUserMutation();
 
     useEffect(() => {
         if (data) {
@@ -16,10 +16,6 @@ export const UsersContainer: React.FC = () => {
             setUsersData(data);
         }
     }, [data]);
-
-
-
-
 
     return (
         <div>
