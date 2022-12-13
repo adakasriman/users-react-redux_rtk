@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { UserData } from '../../models/users.model';
-import { useUsersQuery } from '../../services/usersApis';
+import { useDeleteUserMutation, useUsersQuery } from '../../services/usersApis';
 import { LoadingSpinner } from '../loading-spiner/LoadingSpinner';
 import { UserList } from './UserList';
 
@@ -8,6 +8,7 @@ export const UsersContainer: React.FC = () => {
     const [usersData, setUsersData] = useState<UserData[]>();
 
     let { data, isLoading } = useUsersQuery();
+    const [deleteUserData] = useDeleteUserMutation();
 
     useEffect(() => {
         if (data) {
@@ -27,7 +28,7 @@ export const UsersContainer: React.FC = () => {
                     <LoadingSpinner />
                 </div>
 
-            ) : usersData && <UserList users={usersData} />
+            ) : usersData && <UserList users={usersData} deleteUserData={deleteUserData} />
             }
         </div>
     )

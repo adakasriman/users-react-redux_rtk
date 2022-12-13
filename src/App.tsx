@@ -12,6 +12,7 @@ import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { HeaderConatainer } from './components/header/HeaderConatainer';
 import { Route, Routes } from 'react-router';
 import { UsersContainer } from './components/Users/UsersContainer';
+import { UserView } from './components/Users/user-view/UserView';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -32,8 +33,8 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('users', '1', <UserOutlined />,),
-  getItem('Add user', '2', <UserOutlined />),
+  getItem('users', '1', <UserOutlined />),
+  // getItem('Add user', '2', <UserOutlined />),
   // getItem('User', 'sub1', <UserOutlined />, [
   //   getItem('Tom', '3'),
   //   getItem('Bill', '4'),
@@ -43,21 +44,29 @@ const items: MenuItem[] = [
   // getItem('Files', '9', <FileOutlined />),
 ];
 
+
+
+
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
- const addUser =() =>{
+  console.log(items);
+
+
+  const routeTo = (manu: any) => {
 
   }
+
+
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
         <div style={{ paddingTop: 5, height: 32, margin: 16, background: 'rgba(255, 255, 255, 0.2)', color: '#fff', textAlign: 'center' }} >USERS</div>
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} onClick={() => routeTo(items)} />
       </Sider>
       <Layout className="site-layout">
         <Header style={{ padding: 0, background: colorBgContainer }}><HeaderConatainer /></Header>
@@ -65,9 +74,9 @@ const App: React.FC = () => {
           <Routes>
 
             <Route path="/" element={<UsersContainer />} />
-            {/* <Route path="/products" element={<Products />} /> */}
-            {/* <Route path='/products/product/:id' element={<ProductViewContainer />} />
-            <Route path='/products/search' element={<SearchContainer />} />
+            <Route path="/users" element={<UsersContainer />} />
+            <Route path='/users/user/:id' element={<UserView />} />
+            {/* <Route path='/products/search' element={<SearchContainer />} />
             <Route path="/products/categories" element={<CategoriesContainer />} /> */}
             {/* <Route path="/products/add" element={<AddProductContainer />} /> */}
           </Routes>

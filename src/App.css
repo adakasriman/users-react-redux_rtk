@@ -7,6 +7,10 @@
     'Noto Color Emoji';
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .login {
   margin-top: 13%;
 }
@@ -39,10 +43,10 @@
 }
 
 .content {
- min-height: 78vh;
- max-height: 78vh;
- overflow-y: auto;
- overflow-x: hidden;
+  min-height: 78vh;
+  max-height: 78vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 
 }
 
@@ -51,6 +55,28 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 10px;
+}
+
+
+.users .user-date:hover .user-content div {
+  color: #4285F4;
+}
+
+.users .delete {
+  font-size: 15px;
+  position: relative;
+  top: -8px;
+  left: 110px;
+  color: #ff4444;
+}
+
+.users .user-date:hover .user-content .delete {
+  text-align: right;
+  color: #fff;
+  padding: 0px 7px 7px 7px;
+  border-radius: 20px;
+  background: #ff4444;
 }
 
 .user {
@@ -59,14 +85,51 @@
   /* background: green; */
 }
 
-.user img{
-  /* width: 100%; */
-  /* border-top-left-radius: 50px;
-  border-bottom-right-radius: 50px; */
+
+
+
+.user img {
+  width: 100%;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 :where(.css-dev-only-do-not-override-1s3dcof).ant-image {
   position: relative;
   display: inline-block;
   width: 100%;
+}
+
+.user_view {
+  margin: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.user_view .data .head:hover h3 {
+  color: #4285F4;
+}
+
+.user_view .data .head:hover .actions .edit {
+  color: #4285F4;
+  font-size: 18px;
+}
+
+.text-right {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.user_view .data p {
+  margin-top: 20px;
+  color: rgb(22, 21, 21);
+}
+
+.user_view .data .back_btn {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.user_view .data p:hover {
+  font-size: 15px;
 }

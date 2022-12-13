@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { UserData } from "../models/users.model";
 
 
 export const usersApi = createApi({ //contactApi reducer
@@ -6,11 +7,11 @@ export const usersApi = createApi({ //contactApi reducer
     baseQuery: fetchBaseQuery({ baseUrl: "https://638c8737eafd555746a83447.mockapi.io/api/v1/" }), // here we were creating baseurl
     tagTypes: ['users'], // When ever the data is updated, inserted or deleted from the server, it updates the data.
     endpoints: (builder) => ({     // bulider can build the endPoints                                     
-        users: builder.query<any, void>({
+        users: builder.query<UserData[], void>({
             query: () => '/users', // users is end point of the server
             providesTags: ['users']  // updating data 
         }),
-        user: builder.query<any, string>({
+        user: builder.query<UserData, string |undefined>({
             query: (id) => `/users/${id}`,  //getting data of id
             providesTags: ['users']  // updating data 
         }),
